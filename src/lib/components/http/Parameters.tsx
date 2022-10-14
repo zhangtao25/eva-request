@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react";
 import { useImmer } from "use-immer";
 
 import { HoppRESTParam } from "../../data/rest";
-import { HttpContext } from "../panes/Request";
+import { HttpContext } from "../..";
 import FormHeader from "./FormHeader";
 import FormTable, { KeyValueType, useColumns } from "./FormTable";
 

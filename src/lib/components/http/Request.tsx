@@ -56,8 +56,8 @@ const HttpRequest = () => {
 					onChange={(value) => {
 					}}
 				/>
-				<SmartEnvInput value={'sss'} onChange={()=>{
-					console.log('asfasfas')
+				<SmartEnvInput value={'http://127.0.0.1:5173/eva-request/'} onChange={()=>{
+					console.log('http://127.0.0.1:5173/eva-request/')
 				}}></SmartEnvInput>
 				<Button type='primary' onClick={()=>{}}>
 					Send

@@ -9,8 +9,9 @@ import {
 } from "react";
 
 import { useCodeMirror } from "../../helpers/editor/codemirror";
+import {HttpContext} from "../../index";
 // import { requestUseStore } from '../../store/request';
-import { HttpContext } from "../panes/Request";
+// import { HttpContext } from "../panes/Request";
 
 const HttpRawBody = ({ data, cRef }) => {
 	const rawBodyParameters = useRef(null);

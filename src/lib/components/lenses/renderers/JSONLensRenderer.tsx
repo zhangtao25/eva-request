@@ -4,9 +4,9 @@ import { FC, useRef } from "react";
 import { useCodeMirror } from "../../../helpers/editor/codemirror";
 import { HoppRESTResponse } from "../../../helpers/types/HoppRESTResponse";
 
-import { sublime } from "@uiw/codemirror-theme-sublime";
-import { githubLight, githubDark } from "@uiw/codemirror-theme-github";
-import { xcodeLight, xcodeDark } from "@uiw/codemirror-theme-xcode";
+// import { sublime } from "@uiw/codemirror-theme-sublime";
+// import { githubLight, githubDark } from "@uiw/codemirror-theme-github";
+// import { xcodeLight, xcodeDark } from "@uiw/codemirror-theme-xcode";
 
 const JSONLensRenderer: FC<{ response: HoppRESTResponse }> = ({ response }) => {
 	const jsonResponse = useRef(null);
@@ -16,8 +16,7 @@ const JSONLensRenderer: FC<{ response: HoppRESTResponse }> = ({ response }) => {
 		container: jsonResponse.current,
 		value: JSON.stringify(jsonObj, null, 2),
 		height: "300px",
-		extensions: [json()],
-		theme: xcodeDark,
+		extensions: [json()]
 	});
 	return (
 		<div>
