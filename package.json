@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc"
+    "build": "vite build"
   },
   "dependencies": {
     "@babel/core": "^7.19.3",
