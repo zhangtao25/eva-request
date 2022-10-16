@@ -5,7 +5,7 @@ import 'allotment/dist/style.css';
 import 'antd/dist/antd.css';
 import HttpRequestOptions from './components/http/RequestOptions';
 import { createContext, FC, useEffect, useReducer } from 'react';
-import _ from 'lodash';
+import _ from 'lodash-es';
 import HttpResponse from './components/http/Response';
 import en from './locales/en.json';
 import cn from './locales/cn.json';
