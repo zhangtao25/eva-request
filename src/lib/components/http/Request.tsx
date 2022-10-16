@@ -1,9 +1,10 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { Breadcrumb, Button, Input, message, Select } from "antd";
-import { useContext, useEffect, useMemo, useRef } from "react";
-import SmartEnvInput from "../smart/EnvInput";
-
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Breadcrumb, Button, Input, message, Select } from 'antd';
+import { useContext, useEffect, useMemo, useRef } from 'react';
+import SmartEnvInput from '../smart/EnvInput';
+import {HttpContext} from "../../index";
+import {getValueByPath} from "../../helpers/utils/locale";
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -26,45 +27,47 @@ const HeaderWrapper = styled.div`
 `;
 
 const methods = [
-	"GET",
-	"POST",
-	"PUT",
-	"PATCH",
-	"DELETE",
-	"HEAD",
-	"CONNECT",
-	"OPTIONS",
-	"TRACE",
-	"CUSTOM",
-]
+  'GET',
+  'POST',
+  'PUT',
+  'PATCH',
+  'DELETE',
+  'HEAD',
+  'CONNECT',
+  'OPTIONS',
+  'TRACE',
+  'CUSTOM',
+];
 
 const HttpRequest = () => {
-
-	return (
-		<div>
-			<div
-				css={css`
+  const { store } = useContext(HttpContext);
+  const t = (key) => getValueByPath(store.locale, key);
+  return (
+    <div>
+      <div
+        css={css`
           display: flex;
           justify-content: space-between;
         `}
-			>
-			</div>
-			<HeaderWrapper>
-				<Select
-					value={'post'}
-					options={methods.map(i=>({value:i,lable:i}))}
-					onChange={(value) => {
-					}}
-				/>
-				<SmartEnvInput value={'http://127.0.0.1:5173/eva-request/'} onChange={()=>{
-					console.log('http://127.0.0.1:5173/eva-request/')
-				}}></SmartEnvInput>
-				<Button type='primary' onClick={()=>{}}>
-					Send
-				</Button>
-			</HeaderWrapper>
-		</div>
-	);
+      ></div>
+      <HeaderWrapper>
+        <Select
+          value={'post'}
+          options={methods.map((i) => ({ value: i, lable: i }))}
+          onChange={(value) => {}}
+        />
+        <SmartEnvInput
+          value={'http://127.0.0.1:5173/eva-request/'}
+          onChange={() => {
+            console.log('http://127.0.0.1:5173/eva-request/');
+          }}
+        ></SmartEnvInput>
+        <Button type='primary' onClick={() => {}}>
+          {t('action.send')}
+        </Button>
+      </HeaderWrapper>
+    </div>
+  );
 };
 
 export default HttpRequest;

@@ -1,43 +1,43 @@
 export type HoppRESTAuthNone = {
-	authType: "none";
+  authType: 'none';
 };
 
 export type HoppRESTAuthBasic = {
-	authType: "basic";
+  authType: 'basic';
 
-	username: string;
-	password: string;
+  username: string;
+  password: string;
 };
 
 export type HoppRESTAuthBearer = {
-	authType: "bearer";
+  authType: 'bearer';
 
-	token: string;
+  token: string;
 };
 
 export type HoppRESTAuthOAuth2 = {
-	authType: "oauth-2";
+  authType: 'oauth-2';
 
-	token: string;
-	oidcDiscoveryURL: string;
-	authURL: string;
-	accessTokenURL: string;
-	clientID: string;
-	scope: string;
+  token: string;
+  oidcDiscoveryURL: string;
+  authURL: string;
+  accessTokenURL: string;
+  clientID: string;
+  scope: string;
 };
 
 export type HoppRESTAuthAPIKey = {
-	authType: "api-key";
+  authType: 'api-key';
 
-	key: string;
-	value: string;
-	addTo: string;
+  key: string;
+  value: string;
+  addTo: string;
 };
 
 export type HoppRESTAuth = { authActive: boolean } & (
-	| HoppRESTAuthNone
-	| HoppRESTAuthBasic
-	| HoppRESTAuthBearer
-	| HoppRESTAuthOAuth2
-	| HoppRESTAuthAPIKey
+  | HoppRESTAuthNone
+  | HoppRESTAuthBasic
+  | HoppRESTAuthBearer
+  | HoppRESTAuthOAuth2
+  | HoppRESTAuthAPIKey
 );

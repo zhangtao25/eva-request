@@ -1,19 +1,21 @@
 import {
-	DeleteOutlined,
-	EditOutlined,
-	PlusOutlined,
-	QuestionCircleOutlined,
-} from "@ant-design/icons";
-import styled from "@emotion/styled";
-import { Button, Tooltip } from "antd";
-import { FC } from "react";
-import { useTranslation } from "react-i18next";
-import { Updater } from "use-immer";
+  DeleteOutlined,
+  EditOutlined,
+  PlusOutlined,
+  QuestionCircleOutlined,
+} from '@ant-design/icons';
+import styled from '@emotion/styled';
+import { Button, Tooltip } from 'antd';
+import { FC, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Updater } from 'use-immer';
+import { HttpContext } from '../../index';
+import { getValueByPath } from '../../helpers/utils/locale';
 
 export type KeyValueType = {
-	key: string;
-	value: string;
-	active: boolean;
+  key: string;
+  value: string;
+  active: boolean;
 };
 
 export const FormHeaderWrapper = styled.div`
@@ -32,50 +34,41 @@ export const FormHeaderWrapper = styled.div`
 `;
 
 const FormHeader: FC<{ update: Updater<KeyValueType[]> }> = (props) => {
-	const { t: t_common } = useTranslation("common");
-	const { t: t_components } = useTranslation("components");
-	const { t } = useTranslation();
+  const { store } = useContext(HttpContext);
+  const t = (key) => getValueByPath(store.locale, key);
 
-	const handleAddParam = () => {
-		const newValue: KeyValueType = {
-			key: "",
-			value: "",
-			active: true,
-		};
-		props.update((state) => {
-			state.push(newValue);
-		});
-	};
+  const handleAddParam = () => {
+    const newValue: KeyValueType = {
+      key: '',
+      value: '',
+      active: true,
+    };
+    props.update((state) => {
+      state.push(newValue);
+    });
+  };
 
-	const handleClearAllParams = () => props.update([]);
+  const handleClearAllParams = () => props.update([]);
 
-	return (
-		<FormHeaderWrapper>
-			<span>{t("request.parameter_list")}</span>
-			<div>
-				<Tooltip title={t_common("help")}>
-					<Button type='text' icon={<QuestionCircleOutlined />} />
-				</Tooltip>
-				<Tooltip title={t_common("clearAll")}>
-					<Button
-						type='text'
-						icon={<DeleteOutlined />}
-						onClick={handleClearAllParams}
-					/>
-				</Tooltip>
-				<Tooltip title={t_common("batchEdit")}>
-					<Button type='text' icon={<EditOutlined />} />
-				</Tooltip>
-				<Tooltip title={t_common("add")}>
-					<Button
-						type='text'
-						icon={<PlusOutlined />}
-						onClick={handleAddParam}
-					/>
-				</Tooltip>
-			</div>
-		</FormHeaderWrapper>
-	);
+  return (
+    <FormHeaderWrapper>
+      <span>{t('request.parameter_list')}</span>
+      <div>
+        <Tooltip title={t('help')}>
+          <Button type='text' icon={<QuestionCircleOutlined />} />
+        </Tooltip>
+        <Tooltip title={t('clearAll')}>
+          <Button type='text' icon={<DeleteOutlined />} onClick={handleClearAllParams} />
+        </Tooltip>
+        <Tooltip title={t('batchEdit')}>
+          <Button type='text' icon={<EditOutlined />} />
+        </Tooltip>
+        <Tooltip title={t('add')}>
+          <Button type='text' icon={<PlusOutlined />} onClick={handleAddParam} />
+        </Tooltip>
+      </div>
+    </FormHeaderWrapper>
+  );
 };
 
 export default FormHeader;

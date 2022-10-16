@@ -6,12 +6,12 @@
  * @param sortFunc sort function to sort against (same as Array.sort)
  */
 export const arrayUnsafeSort =
-	<T>(sortFunc: (a: T, b: T) => number) =>
-	(arr: T[]) => {
-		arr.sort(sortFunc);
+  <T>(sortFunc: (a: T, b: T) => number) =>
+  (arr: T[]) => {
+    arr.sort(sortFunc);
 
-		return arr;
-	};
+    return arr;
+  };
 
 /**
  * Equivalent to `Array.prototype.flatMap`
@@ -19,9 +19,8 @@ export const arrayUnsafeSort =
  * @returns
  */
 export const arrayFlatMap =
-	<T, U>(mapFunc: (value: T, index: number, arr: T[]) => U[]) =>
-	(arr: T[]) =>
-		arr.flatMap(mapFunc);
+  <T, U>(mapFunc: (value: T, index: number, arr: T[]) => U[]) =>
+  (arr: T[]) =>
+    arr.flatMap(mapFunc);
 
-export const stringArrayJoin = (separator: string) => (arr: string[]) =>
-	arr.join(separator);
+export const stringArrayJoin = (separator: string) => (arr: string[]) => arr.join(separator);

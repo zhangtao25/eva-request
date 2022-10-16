@@ -1,5 +1,5 @@
 const HttpTests = () => {
-	return <div>HttpTests</div>;
+  return <div>HttpTests</div>;
 };
 
 export default HttpTests;

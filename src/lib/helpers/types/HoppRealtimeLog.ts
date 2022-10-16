@@ -1,9 +1,9 @@
 export type HoppRealtimeLogLine = {
-  prefix?: string
-  payload: string
-  source: string
-  color?: string
-  ts: number | undefined
-}
+  prefix?: string;
+  payload: string;
+  source: string;
+  color?: string;
+  ts: number | undefined;
+};
 
-export type HoppRealtimeLog = HoppRealtimeLogLine[]
+export type HoppRealtimeLog = HoppRealtimeLogLine[];

@@ -1,4 +1,4 @@
-import { HoppRESTRequest } from "@hoppscotch/data"
+import { HoppRESTRequest } from '@hoppscotch/data';
 
 /**
  * We use the save context to figure out
@@ -11,39 +11,39 @@ export type HoppRequestSaveContext =
       /**
        * The origin source of the request
        */
-      originLocation: "user-collection"
+      originLocation: 'user-collection';
       /**
        * Path to the request folder
        */
-      folderPath: string
+      folderPath: string;
       /**
        * Index to the request
        */
-      requestIndex: number
+      requestIndex: number;
       /**
        * Current request
        */
-      req?: HoppRESTRequest
+      req?: HoppRESTRequest;
     }
   | {
       /**
        * The origin source of the request
        */
-      originLocation: "team-collection"
+      originLocation: 'team-collection';
       /**
        * ID of the request in the team
        */
-      requestID: string
+      requestID: string;
       /**
        * ID of the team
        */
-      teamID?: string
+      teamID?: string;
       /**
        * ID of the collection loaded
        */
-      collectionID?: string
+      collectionID?: string;
       /**
        * Current request
        */
-      req?: HoppRESTRequest
-    }
+      req?: HoppRESTRequest;
+    };
