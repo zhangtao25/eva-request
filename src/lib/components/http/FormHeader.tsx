@@ -7,7 +7,6 @@ import {
 import styled from '@emotion/styled';
 import { Button, Tooltip } from 'antd';
 import { FC, useContext } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Updater } from 'use-immer';
 import { HttpContext } from '../../index';
 import { getValueByPath } from '../../helpers/utils/locale';

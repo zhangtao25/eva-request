@@ -1,12 +1,13 @@
 import { hoverTooltip } from '@codemirror/view';
 import styled from '@emotion/styled';
-import { FC, useRef } from 'react';
+import {FC, useContext, useRef} from 'react';
 
 import { useEnvCodeMirror } from '../../helpers/editor/extensions/EnvCodeMirror';
 import {
   getMarkFromToArr,
   HOPP_ENVIRONMENT_REGEX,
 } from '../../helpers/editor/extensions/HoppEnvironment';
+import {HttpContext} from "../../index";
 // import { useStore } from '../../store';
 
 const SmartEnvInputWrapper = styled.div`
@@ -20,6 +21,7 @@ interface SmartEnvInputProps {
 }
 const SmartEnvInput: FC<SmartEnvInputProps> = ({ value, onChange }) => {
   const smartEnvInputRef = useRef(null);
+  const {dispatch} = useContext(HttpContext)
   // const { currentEnvironment, themeClassify } = useStore();
   // console.log(themeClassify,'themeClassify')
   useEnvCodeMirror({
@@ -54,10 +56,9 @@ const SmartEnvInput: FC<SmartEnvInputProps> = ({ value, onChange }) => {
       ],
     ],
     onChange: (val) => {
-      onChange({
-        target: {
-          value: val,
-        },
+      dispatch({
+        type: 'setRequestEndpoint',
+        payload: val,
       });
     },
     currentEnv: 'currentEnvironment',

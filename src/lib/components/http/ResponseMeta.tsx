@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { Spin } from 'antd';
 import { FC, useContext, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { HoppRESTResponse } from '../../helpers/types/HoppRESTResponse';
 import { getStatusCodeReasonPhrase } from '../../helpers/utils/statusCodes';

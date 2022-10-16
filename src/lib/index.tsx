@@ -23,15 +23,15 @@ const defaultState = {
   rawParamsBody: '',
   request: {
     preRequestScript: '',
-    v: '1',
+    v: '',
     headers: [],
-    name: 'updatePet',
+    name: '',
     body: {
       contentType: 'application/json',
       body: '',
     },
     testScript: '',
-    method: 'PUT',
+    method: '',
     auth: {
       authURL: 'http://petstore.swagger.io/api/oauth/dialog',
       oidcDiscoveryURL: '',
@@ -42,7 +42,7 @@ const defaultState = {
       authType: 'oauth-2',
       authActive: true,
     },
-    endpoint: '<<baseUrl>>/pet',
+    endpoint: '',
     params: [],
   },
   response: {
@@ -88,8 +88,8 @@ const EvaRequestComponent: FC<EvaRequestComponentProps> = ({ locale,updateReques
 
   const data = {
     _id: '633ac99c3dfa7510a140c53c',
-    endpoint: '{{url}}/passwordLogin',
-    method: 'POST',
+    endpoint: 'http://qingkong.rico.org.cn/api/cov/calendar',
+    method: 'GET',
     params: [
       { key: 'name', value: 'zt', active: true },
       { key: 'age', value: '18', active: true },
@@ -109,6 +109,11 @@ const EvaRequestComponent: FC<EvaRequestComponentProps> = ({ locale,updateReques
       type: 'setLocale',
       payload: localeObj[locale],
     });
+
+    dispatch({
+      type: 'setRequest',
+      payload: data,
+    });
   }, [locale]);
 
   return (
@@ -120,6 +125,7 @@ const EvaRequestComponent: FC<EvaRequestComponentProps> = ({ locale,updateReques
         vertical={true}
       >
         <Allotment.Pane preferredSize={400}>
+          {JSON.stringify(store.request)}
           <HttpRequest updateRequest={updateRequest}></HttpRequest>
           <HttpRequestOptions data={data}></HttpRequestOptions>
         </Allotment.Pane>
