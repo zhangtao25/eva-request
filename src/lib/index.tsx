@@ -77,9 +77,11 @@ function reducer(state = defaultState, action) {
 
 interface EvaRequestComponentProps {
   locale: any;
+  updateRequest:any
+  createRequest:any
 }
 
-const EvaRequestComponent: FC<EvaRequestComponentProps> = ({ locale }, context) => {
+const EvaRequestComponent: FC<EvaRequestComponentProps> = ({ locale,updateRequest }, context) => {
   // console.log(props,'props',context,'context')
 
   const [store, dispatch] = useReducer(reducer, defaultState); //创建reducer
@@ -113,12 +115,12 @@ const EvaRequestComponent: FC<EvaRequestComponentProps> = ({ locale }, context) 
     <HttpContext.Provider value={{ store, dispatch }}>
       <Allotment
         css={css`
-          height: calc(100vh - 300px);
+          height: calc(100vh - 48px);
         `}
         vertical={true}
       >
         <Allotment.Pane preferredSize={400}>
-          <HttpRequest></HttpRequest>
+          <HttpRequest updateRequest={updateRequest}></HttpRequest>
           <HttpRequestOptions data={data}></HttpRequestOptions>
         </Allotment.Pane>
         <Allotment.Pane>

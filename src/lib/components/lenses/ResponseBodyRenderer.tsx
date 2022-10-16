@@ -8,6 +8,7 @@ import HttpParameters from '../http/Parameters';
 import LensesHeadersRenderer from './HeadersRenderer';
 import JSONLensRenderer from './renderers/JSONLensRenderer';
 import RawLensRenderer from './renderers/RawLensRenderer';
+import {css} from "@emotion/react";
 
 const LensesResponseBodyRenderer: FC<{ response: HoppRESTResponse }> = ({ response }) => {
   // const jsonResponse = useRef(null);
@@ -36,7 +37,7 @@ const LensesResponseBodyRenderer: FC<{ response: HoppRESTResponse }> = ({ respon
     },
   ];
   return (
-    <div>
+    <div css={css`padding: 16px`}>
       <Tabs items={items} />
       {/*<div ref={jsonResponse}></div>*/}
     </div>

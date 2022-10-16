@@ -8,6 +8,7 @@ import HttpTests from './Tests';
 import HttpParameters from './Parameters';
 import {HttpContext} from "../../index";
 import {getValueByPath} from "../../helpers/utils/locale";
+import {css} from "@emotion/react";
 const { TabPane } = Tabs;
 const HttpRequestOptions = ({ data }) => {
   const { store } = useContext(HttpContext);
@@ -27,7 +28,7 @@ const HttpRequestOptions = ({ data }) => {
     // { label: 'binary', key: '4', children: '内容 2' },
   ];
   return (
-    <div>
+    <div css={css`padding-left: 16px`}>
       <Tabs
         activeKey={activeKey}
         items={items}

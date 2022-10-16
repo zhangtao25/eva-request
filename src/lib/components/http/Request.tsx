@@ -39,17 +39,30 @@ const methods = [
   'CUSTOM',
 ];
 
-const HttpRequest = () => {
+const HttpRequest = ({updateRequest}) => {
   const { store } = useContext(HttpContext);
   const t = (key) => getValueByPath(store.locale, key);
   return (
-    <div>
+    <div css={css`padding: 16px`}>
       <div
         css={css`
           display: flex;
           justify-content: space-between;
         `}
-      ></div>
+      >
+        <div>
+          <Button
+            onClick={() => {
+              // upda
+              updateRequest().then(res=>{
+                console.log(res)
+              })
+            }}
+          >
+            Save
+          </Button>
+        </div>
+      </div>
       <HeaderWrapper>
         <Select
           value={'post'}
